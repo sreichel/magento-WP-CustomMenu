@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package>
   <name>wp_custom_menu</name>
-  <version>2.10.0</version>
+  <version>2.10.2</version>
   <stability>stable</stability>
   <license uri="http://web-experiment.info/regular_free_license">Web-Experiment.Info Regular Free License</license>
   <channel>community</channel>
   <extends/>
   <summary>Magento Extension - Magento Custom Menu (Web-Experiment.Info)</summary>
   <description>Magento Extension - Magento Custom Menu (Web-Experiment.Info)</description>
-  <notes>Добавлена интеграция в RWD тему. Убрано принудительное переключение в мобильное меню по user-agent. Теперь переключение в мобильное меню осуществляется по значению ширины экрана. Добавлен новый параметр Width to trigger to mobile view. Текстовые изменения на странице настроек.</notes>
+  <notes>Устранение бага подсчета продуктов в категорияй при фключенном flat catalog</notes>
   <authors>
     <author>
       <name>WebAndPeople</name>
@@ -21,8 +21,8 @@
       <email>y.gerassimenko@webandpeople.com</email>
     </author>
   </authors>
-  <date>2014-11-06</date>
-  <time>05:02:33</time>
+  <date>2015-06-17</date>
+  <time>13:27:02</time>
   <contents>
     <target name="mageweb">
       <dir name="app">
@@ -32,19 +32,19 @@
               <dir name="CustomMenu">
                 <dir name="Block">
                   <file name="About.php" hash="2537ed2ed0af59077dde8193bb1f1cd9"/>
-                  <file name="Navigation.php" hash="571a10c06eece83c78fa56b44f84b924"/>
+                  <file name="Navigation.php" hash="2772a424a66c690cd72e846104ce4773"/>
                   <file name="Toggle.php" hash="a184685bd82a0d5238ce40215aba97f6"/>
                   <file name="Topmenu.php" hash="baf91d07f38b733b3e09957ccab4db4d"/>
                 </dir>
                 <dir name="Helper">
-                  <file name="Data.php" hash="9f2aff4d6a50272600f78deee3fc8032"/>
+                  <file name="Data.php" hash="1c942fb2fc11bfbdb2dd925f3fcc6932"/>
                 </dir>
                 <dir name="controllers">
                   <file name="AjaxmenucontentController.php" hash="8149156483648c590da7d4e977b6829e"/>
                   <file name="AjaxmobilemenucontentController.php" hash="38ca4e28579d38d697b22e5940c7ecc6"/>
                 </dir>
                 <dir name="etc">
-                  <file name="config.xml" hash="095f373bba649a61e8a40335ff31bd86"/>
+                  <file name="config.xml" hash="9b855477b12af8fdcfa3e87fa696a541"/>
                   <file name="system.xml" hash="db517d350606da58f1d25e4301450ac6"/>
                 </dir>
               </dir>
@@ -53,24 +53,7 @@
         </dir>
         <dir name="design">
           <dir name="frontend">
-            <dir name="default">
-              <dir name="default">
-                <dir name="layout">
-                  <dir name="webandpeople">
-                    <file name="custommenu.xml" hash="924c62b611df2b20ef35fccab8c87a86"/>
-                  </dir>
-                </dir>
-                <dir name="template">
-                  <dir name="webandpeople">
-                    <dir name="custommenu">
-                      <file name="menucontent.phtml" hash="3394e31c66923ebef82c53b89abad333"/>
-                      <file name="top.phtml" hash="27f74d60761183011778638facc3c5d0"/>
-                    </dir>
-                  </dir>
-                </dir>
-              </dir>
-            </dir>
-            <dir name="rwd">
+            <dir name="base">
               <dir name="default">
                 <dir name="layout">
                   <dir name="webandpeople">
@@ -97,7 +80,7 @@
       </dir>
       <dir name="skin">
         <dir name="frontend">
-          <dir name="default">
+          <dir name="base">
             <dir name="default">
               <dir name="css">
                 <dir name="webandpeople">
@@ -121,13 +104,6 @@
                 <dir name="webandpeople">
                   <dir name="custommenu">
                     <file name="custommenu.css" hash="1a7b49f1047b7738c73acae90bd168b4"/>
-                  </dir>
-                </dir>
-              </dir>
-              <dir name="js">
-                <dir name="webandpeople">
-                  <dir name="custommenu">
-                    <file name="custommenu.js" hash="4e0ebcb63638c6d9cedb9e1a314ed9f8"/>
                   </dir>
                 </dir>
               </dir>

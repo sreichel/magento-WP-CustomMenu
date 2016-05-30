@@ -259,9 +259,12 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
             /* @var $collection Mage_Catalog_Model_Resource_Eav_Mysql4_Category_Collection */
             $collection->addAttributeToSelect('name')
                 ->addAttributeToSelect('is_active')
-                ->setProductStoreId($storeId)
-                ->setLoadProductCount(true)
                 ->setStoreId($storeId);
+			if(method_exists($collection, 'setProductStoreId'))
+                $collection->setProductStoreId($storeId);
+			if(method_exists($collection, 'setLoadProductCount'))
+                $collection->setLoadProductCount(true);
+
             $productsCount = array();
             foreach($collection as $cat) {
                 $productsCount[$cat->getId()] = array(

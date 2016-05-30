@@ -117,17 +117,18 @@ HTML;
 HTML;
     }
         // --- Menu Content ---
-        $menuContent = '';
-        $menuContentArray = array();
+        $menuContent        = '';
+        $menuContentArray   = array();
         foreach ($_categories as $_category) {
             $_block->drawCustomMenuItem($_category);
         }
-        $topMenuArray = $_block->getTopMenuArray();
+        $topMenuArray       = $_block->getTopMenuArray();
+        $topMenuContent     = '';
         if (count($topMenuArray)) {
             $topMenuContent = implode("\n", $topMenuArray);
         }
-        $popupMenuArray = $_block->getPopupMenuArray();
-        $popupMenuContent = '';
+        $popupMenuArray     = $_block->getPopupMenuArray();
+        $popupMenuContent   = '';
         if (count($popupMenuArray)) {
             $popupMenuContent = implode("\n", $popupMenuArray);
         }
