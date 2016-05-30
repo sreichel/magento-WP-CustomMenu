@@ -19,6 +19,28 @@
         <?php endforeach ?>
         <div class="clearBoth"></div>
     </div>
+    <div id="custommenu-mobile" class="<?php echo $_rtl ? ' rtl' : ''; ?>" style="display:none;">
+        <div id="menu-button" onclick="wpMenuButtonToggle()">
+            <a href="javascript:void(0);">
+                <span>Menu</span>
+            </a>
+        </div>
+        <div id="menu-content" style="display:none;">
+            <?php if ($this->showHomeLink()) : ?>
+            <div id="menu-mobile-0" class="menu-mobile level0">
+                <div class="parentMenu">
+                    <a href="<?php echo $this->getUrl('') ?>">
+                        <span><?php echo $this->__('Home'); ?></span>
+                    </a>
+                </div>
+            </div>
+            <?php endif ?>
+            <?php foreach ($_categories as $_category): ?>
+                <?php echo $this->drawCustomMenuMobileItem($_category) ?>
+            <?php endforeach ?>
+            <div class="clearBoth"></div>
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
 //<![CDATA[
@@ -30,5 +52,6 @@ var CUSTOMMENU_RTL_MODE = <?php echo $_rtl; ?>;
 var wpCustommenuTimerShow = {};
 var wpCustommenuTimerHide = {};
 var wpActiveMenu = null;
+wpCustomMenuMobileToggle();
 //]]>
 </script>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package>
   <name>wp_custom_menu</name>
-  <version>2.4.1</version>
+  <version>2.5.2</version>
   <stability>stable</stability>
   <license uri="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</license>
   <channel>community</channel>
   <extends/>
   <summary>Magento Extension - Magento Custom Menu (Web-Experiment.Info)</summary>
   <description>Magento Extension - Magento Custom Menu (Web-Experiment.Info)</description>
-  <notes>~ detection id to display a static block</notes>
+  <notes>+ submenu level3+</notes>
   <authors>
     <author>
       <name>WebAndPeople</name>
@@ -21,8 +21,8 @@
       <email>y.gerassimenko@webandpeople.com</email>
     </author>
   </authors>
-  <date>2013-05-28</date>
-  <time>23:31:06</time>
+  <date>2013-07-05</date>
+  <time>11:29:07</time>
   <contents>
     <target name="mageweb">
       <dir name="app">
@@ -32,7 +32,7 @@
               <dir name="CustomMenu">
                 <dir name="Block">
                   <file name="About.php" hash="c7770064d9bbd15f841b8f8d65aafe19"/>
-                  <file name="Navigation.php" hash="d9098519e18f957b9759bb32dcdf5010"/>
+                  <file name="Navigation.php" hash="2bcf08eaf590fdc87596fa8c0bfa8b1a"/>
                   <file name="Toggle.php" hash="b280abeb27613c14139a0f590048fcc7"/>
                   <file name="Topmenu.php" hash="7102b3bf0473dc5ecb0d66c12bfc6a95"/>
                 </dir>
@@ -40,7 +40,7 @@
                   <file name="Data.php" hash="2e4bf439248df62e7936b59ba31994cc"/>
                 </dir>
                 <dir name="etc">
-                  <file name="config.xml" hash="09a84b04104c8fc3831f0bb8d211300f"/>
+                  <file name="config.xml" hash="ecb8b5ddec0a5e557cf785fb444ad295"/>
                   <file name="system.xml" hash="c02e8881469bdb4fb5341fba2ef5d1a2"/>
                 </dir>
               </dir>
@@ -59,7 +59,7 @@
                 <dir name="template">
                   <dir name="webandpeople">
                     <dir name="custommenu">
-                      <file name="top.phtml" hash="7ef0543e00d047e00683bc449fc77f6f"/>
+                      <file name="top.phtml" hash="1cf5fda0722c071a0f609e7c17229f03"/>
                     </dir>
                   </dir>
                 </dir>
@@ -80,14 +80,14 @@
               <dir name="css">
                 <dir name="webandpeople">
                   <dir name="custommenu">
-                    <file name="custommenu.css" hash="679d419acd6e2de8a4358c1850926f6c"/>
+                    <file name="custommenu.css" hash="1502d73576a6c565ec27b565a2de2778"/>
                   </dir>
                 </dir>
               </dir>
               <dir name="js">
                 <dir name="webandpeople">
                   <dir name="custommenu">
-                    <file name="custommenu.js" hash="5b19bc1102e0e84a8efd41866d1acd0b"/>
+                    <file name="custommenu.js" hash="37f1edab08663a982f5e13ea87fa990a"/>
                   </dir>
                 </dir>
               </dir>

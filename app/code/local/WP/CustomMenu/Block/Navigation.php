@@ -11,6 +11,44 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
         return Mage::getStoreConfig('custom_menu/general/show_home_link');
     }
 
+    public function drawCustomMenuMobileItem($category, $level = 0, $last = false)
+    {
+        if (!$category->getIsActive()) return '';
+        $html = array();
+        $id = $category->getId();
+        // --- Sub Categories ---
+        $activeChildren = $this->_getActiveChildren($category, $level);
+        // --- class for active category ---
+        $active = ''; if ($this->isCategoryActive($category)) $active = ' act';
+        $hasSubMenu = count($activeChildren);
+        $catUrl = $this->getCategoryUrl($category);
+        $html[] = '<div id="menu-mobile-' . $id . '" class="menu-mobile level0' . $active . '">';
+        $html[] = '<div class="parentMenu">';
+        // --- Top Menu Item ---
+        $html[] = '<a href="' . $catUrl .'">';
+        $name = $this->escapeHtml($category->getName());
+        if (Mage::getStoreConfig('custom_menu/general/non_breaking_space')) {
+            $name = str_replace(' ', '&nbsp;', $name);
+        }
+        $html[] = '<span>' . $name . '</span>';
+        $html[] = '</a>';
+        if ($hasSubMenu) {
+            $html[] = '<span class="button" rel="submenu-mobile-' . $id . '" onclick="wpSubMenuToggle(this, \'menu-mobile-' . $id . '\', \'submenu-mobile-' . $id . '\');">&nbsp</span>';
+        }
+        $html[] = '</div>';
+        // --- Add Popup block (hidden) ---
+        if ($hasSubMenu) {
+            // --- draw Sub Categories ---
+            $html[] = '<div id="submenu-mobile-' . $id . '" rel="level' . $level . '" class="wp-custom-menu-submenu" style="display: none;">';
+            $html[] = $this->drawMobileMenuItem($activeChildren);
+            $html[] = '<div class="clearBoth"></div>';
+            $html[] = '</div>';
+        }
+        $html[] = '</div>';
+        $html = implode("\n", $html);
+        return $html;
+    }
+
     public function drawCustomMenuItem($category, $level = 0, $last = false)
     {
         if (!$category->getIsActive()) return '';
@@ -57,8 +95,9 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
             $html[] = '<div id="popup' . $id . '" class="wp-custom-menu-popup" onmouseout="wpHideMenuPopup(this, event, \'popup' . $id . '\', \'menu' . $id . '\')" onmouseover="wpPopupOver(this, event, \'popup' . $id . '\', \'menu' . $id . '\')">';
             // --- draw Sub Categories ---
             if (count($activeChildren)) {
+                $columns = (int)Mage::getStoreConfig('custom_menu/columns/count');
                 $html[] = '<div class="block1">';
-                $html[] = $this->drawColumns($activeChildren);
+                $html[] = $this->drawColumns($activeChildren, $columns);
                 $html[] = '<div class="clearBoth"></div>';
                 $html[] = '</div>';
             }
@@ -71,6 +110,42 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
             $html[] = '</div>';
         }
         $html = implode("\n", $html);
+        return $html;
+    }
+
+    public function drawMobileMenuItem($children, $level = 1)
+    {
+        $keyCurrent = $this->getCurrentCategory()->getId();
+        $html = '';
+        foreach ($children as $child) {
+            if (is_object($child) && $child->getIsActive()) {
+                // --- class for active category ---
+                $active = '';
+                $id = $child->getId();
+                $activeChildren = $this->_getActiveChildren($child, $level);
+                if ($this->isCategoryActive($child)) {
+                    $active = ' actParent';
+                    if ($id == $keyCurrent) $active = ' act';
+                }
+                $html.= '<div id="menu-mobile-' . $id . '" class="itemMenu level' . $level . $active . '">';
+                // --- format category name ---
+                $name = $this->escapeHtml($child->getName());
+                if (Mage::getStoreConfig('custom_menu/general/non_breaking_space')) $name = str_replace(' ', '&nbsp;', $name);
+                $html.= '<div class="parentMenu">';
+                $html.= '<a class="itemMenuName level' . $level . '" href="' . $this->getCategoryUrl($child) . '"><span>' . $name . '</span></a>';
+                if (count($activeChildren) > 0) {
+                    $html.= '<span class="button" rel="submenu-mobile-' . $id . '" onclick="wpSubMenuToggle(this, \'menu-mobile-' . $id . '\', \'submenu-mobile-' . $id . '\');">&nbsp</span>';
+                }
+                $html.= '</div>';
+                if (count($activeChildren) > 0) {
+                    $html.= '<div id="submenu-mobile-' . $id . '" rel="level' . $level . '" class="wp-custom-menu-submenu level' . $level . '" style="display: none;">';
+                    $html.= $this->drawMobileMenuItem($activeChildren, $level + 1);
+                    $html.= '<div class="clearBoth"></div>';
+                    $html.= '</div>';
+                }
+                $html.= '</div>';
+            }
+        }
         return $html;
     }
 
@@ -107,11 +182,10 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
         return $html;
     }
 
-    public function drawColumns($children)
+    public function drawColumns($children, $columns = 1)
     {
         $html = '';
         // --- explode by columns ---
-        $columns = (int)Mage::getStoreConfig('custom_menu/columns/count');
         if ($columns < 1) $columns = 1;
         $chunks = $this->_explodeByColumns($children, $columns);
         // --- draw columns ---

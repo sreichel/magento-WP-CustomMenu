@@ -2,7 +2,7 @@
 <config>
     <modules>
         <WP_CustomMenu>
-            <version>2.4.1</version>
+            <version>2.5.2</version>
         </WP_CustomMenu>
     </modules>
     <frontend>
@@ -73,7 +73,7 @@
                 <non_breaking_space>0</non_breaking_space>
                 <ie6_ignore>1</ie6_ignore>
                 <rtl>0</rtl>
-                <version>2.4.1</version>
+                <version>2.5.2</version>
             </general>
             <columns>
                 <count>3</count>

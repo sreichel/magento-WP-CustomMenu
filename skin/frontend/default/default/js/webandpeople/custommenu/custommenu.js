@@ -133,20 +133,108 @@ function getCurrentMouseTarget(xEvent)
     }
     return wpCurrentMouseTarget;
 }
-/*
-Event.observe(document, 'click', function (event) {
-    if (!!wpActiveMenu) {
-        var element = event.element();
-        if (!!element) {
-            var menuObj = $(wpActiveMenu.menuId);
-            var popupObj = $(wpActiveMenu.popupId);
-            if (!wpIsChildOf(menuObj, element) && menuObj != element) {
-                if (!wpIsChildOf(popupObj, element) && popupObj != element) {
-                    wpHideMenuPopup(element, event, wpActiveMenu.popupId, wpActiveMenu.menuId);
-                    wpActiveMenu = null;
-                }
-            }
+
+function getCurrentMouseTargetMobile(xEvent)
+{
+    if (!xEvent) var xEvent = window.event;
+    var wpCurrentMouseTarget = null;
+    if (xEvent.target) wpCurrentMouseTarget = xEvent.target;
+        else if (xEvent.srcElement) wpCurrentMouseTarget = xEvent.srcElement;
+    if (wpCurrentMouseTarget.nodeType == 3) // defeat Safari bug
+        wpCurrentMouseTarget = wpCurrentMouseTarget.parentNode;
+    return wpCurrentMouseTarget;
+}
+
+/* Mobile */
+function wpMenuButtonToggle()
+{
+    $('menu-content').toggle();
+}
+
+function wpGetMobileSubMenuLevel(id)
+{
+    var rel = $(id).readAttribute('rel');
+    return parseInt(rel.replace('level', ''));
+}
+
+function wpSubMenuToggle(obj, activeMenuId, activeSubMenuId)
+{
+    var currLevel = wpGetMobileSubMenuLevel(activeSubMenuId);
+    // --- hide submenus ---
+    $$('.wp-custom-menu-submenu').each(function(item) {
+        if (item.id == activeSubMenuId) return;
+        var xLevel = wpGetMobileSubMenuLevel(item.id);
+        if (xLevel >= currLevel) {
+            $(item).hide();
         }
+    });
+    // --- reset button state ---
+    $('custommenu-mobile').select('span.button').each(function(xItem) {
+        var subMenuId = $(xItem).readAttribute('rel');
+        if (!$(subMenuId).visible()) {
+            $(xItem).removeClassName('open');
+        }
+    });
+    // ---
+    if ($(activeSubMenuId).getStyle('display') == 'none') {
+        $(activeSubMenuId).show();
+        $(obj).addClassName('open');
+    } else {
+        $(activeSubMenuId).hide();
+        $(obj).removeClassName('open');
     }
+}
+
+function wpResetMobileMenuState()
+{
+    $('menu-content').hide();
+    $$('.wp-custom-menu-submenu').each(function(item) {
+        $(item).hide();
+    });
+    $('custommenu-mobile').select('span.button').each(function(item) {
+        $(item).removeClassName('open');
+    });
+}
+
+function wpCustomMenuMobileToggle()
+{
+    var w = window,
+        d = document,
+        e = d.documentElement,
+        g = d.getElementsByTagName('body')[0],
+        x = w.innerWidth || e.clientWidth || g.clientWidth,
+        y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+    if (x < 800 || wpIsMobile.any()) {
+        $('custommenu').hide();
+        $('custommenu-mobile').show();
+    } else {
+        $('custommenu-mobile').hide();
+        wpResetMobileMenuState();
+        $('custommenu').show();
+    }
+}
+
+Event.observe(window, 'resize', function() {
+    wpCustomMenuMobileToggle();
 });
-*/
+
+var wpIsMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (wpIsMobile.Android() || wpIsMobile.BlackBerry() || wpIsMobile.iOS() || wpIsMobile.Opera() || wpIsMobile.Windows());
+    }
+};

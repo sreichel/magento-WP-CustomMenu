@@ -1,6 +1,6 @@
-app/code/local/WP/CustomMenu                                app/code/local/WP/CustomMenu/
-app/design/default/default/default/layout/*                 app/design/default/default/default/layout/
-app/design/default/default/default/template/custommenu      app/design/default/default/default/template/custommenu
-app/etc/modules/*                                           app/etc/modules/
-skin/default/default/default/css/*                          skin/default/default/default/css/
-skin/default/default/default/js/*                           skin/default/default/default/js/
+app/code/local/WP/CustomMenu                                            app/code/local/WP/CustomMenu/
+app/design/default/default/default/layout/webandpeople/*                app/design/default/default/default/layout/webandpeople/
+app/design/default/default/default/template/webandpeople/custommenu     app/design/default/default/default/template/webandpeople/custommenu
+app/etc/modules/*                                                       app/etc/modules/
+skin/default/default/default/css/webandpeople/custommenu/*              skin/default/default/default/css/webandpeople/custommenu/
+skin/default/default/default/js/webandpeople/custommenu/*               skin/default/default/default/js/webandpeople/custommenu/
