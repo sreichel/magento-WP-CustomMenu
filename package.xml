@@ -1,18 +1,109 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <package>
-    <name>wp_custom_menu</name>
-    <version>2.4.0</version>
-    <stability>stable</stability>
-    <license uri="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</license>
-    <channel>community</channel>
-    <extends/>
-    <summary>Magento Extension - Magento Custom Menu (Web-Experiment.Info)</summary>
-    <description>Magento Extension - Magento Custom Menu (Web-Experiment.Info)</description>
-    <notes>+ support touch screen (only android), ~ error if flat categories mode, ~ if empty categories</notes>
-    <authors><author><name>WebAndPeople</name><user>auto-converted</user><email>design@webandpeople.com</email></author><author><name>y.gerassimenko</name><user>auto-converted</user><email>y.gerassimenko@webandpeople.com</email></author></authors>
-    <date>2013-03-01</date>
-    <time>10:04:58</time>
-    <contents><target name="mageweb"><dir name="app"><dir name="code"><dir name="local"><dir name="WP"><dir name="CustomMenu"><dir name="Block"><file name="About.php" hash="4b43b7032da1d355a8d98add63e12af8"/><file name="Navigation.php" hash="e8994edde5446f9dc9bd5e7d7431a277"/><file name="Toggle.php" hash="b280abeb27613c14139a0f590048fcc7"/><file name="Topmenu.php" hash="7102b3bf0473dc5ecb0d66c12bfc6a95"/></dir><dir name="Helper"><file name="Data.php" hash="2e4bf439248df62e7936b59ba31994cc"/></dir><dir name="etc"><file name="config.xml" hash="3d6f2f5ac491239472b5a23cc0045b02"/><file name="system.xml" hash="c02e8881469bdb4fb5341fba2ef5d1a2"/></dir></dir></dir></dir></dir><dir name="design"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><dir name="webandpeople"><file name="custommenu.xml" hash="924c62b611df2b20ef35fccab8c87a86"/></dir></dir><dir name="template"><dir name="webandpeople"><dir name="custommenu"><file name="top.phtml" hash="7ef0543e00d047e00683bc449fc77f6f"/></dir></dir></dir></dir></dir></dir></dir><dir name="etc"><dir name="modules"><file name="WP_CustomMenu.xml" hash="cfe1d1974c20f4ac9f2d5ace4916c5ab"/></dir></dir></dir><dir name="skin"><dir name="frontend"><dir name="default"><dir name="default"><dir name="css"><dir name="webandpeople"><dir name="custommenu"><file name="custommenu.css" hash="679d419acd6e2de8a4358c1850926f6c"/></dir></dir></dir><dir name="js"><dir name="webandpeople"><dir name="custommenu"><file name="custommenu.js" hash="5b19bc1102e0e84a8efd41866d1acd0b"/></dir></dir></dir></dir></dir></dir></dir></target></contents>
-    <compatible/>
-    <dependencies/>
+  <name>wp_custom_menu</name>
+  <version>2.4.1</version>
+  <stability>stable</stability>
+  <license uri="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</license>
+  <channel>community</channel>
+  <extends/>
+  <summary>Magento Extension - Magento Custom Menu (Web-Experiment.Info)</summary>
+  <description>Magento Extension - Magento Custom Menu (Web-Experiment.Info)</description>
+  <notes>~ detection id to display a static block</notes>
+  <authors>
+    <author>
+      <name>WebAndPeople</name>
+      <user>WebAndPeople</user>
+      <email>design@webandpeople.com</email>
+    </author>
+    <author>
+      <name>y.gerassimenko</name>
+      <user>ygerassimenko</user>
+      <email>y.gerassimenko@webandpeople.com</email>
+    </author>
+  </authors>
+  <date>2013-05-28</date>
+  <time>23:31:06</time>
+  <contents>
+    <target name="mageweb">
+      <dir name="app">
+        <dir name="code">
+          <dir name="local">
+            <dir name="WP">
+              <dir name="CustomMenu">
+                <dir name="Block">
+                  <file name="About.php" hash="c7770064d9bbd15f841b8f8d65aafe19"/>
+                  <file name="Navigation.php" hash="d9098519e18f957b9759bb32dcdf5010"/>
+                  <file name="Toggle.php" hash="b280abeb27613c14139a0f590048fcc7"/>
+                  <file name="Topmenu.php" hash="7102b3bf0473dc5ecb0d66c12bfc6a95"/>
+                </dir>
+                <dir name="Helper">
+                  <file name="Data.php" hash="2e4bf439248df62e7936b59ba31994cc"/>
+                </dir>
+                <dir name="etc">
+                  <file name="config.xml" hash="09a84b04104c8fc3831f0bb8d211300f"/>
+                  <file name="system.xml" hash="c02e8881469bdb4fb5341fba2ef5d1a2"/>
+                </dir>
+              </dir>
+            </dir>
+          </dir>
+        </dir>
+        <dir name="design">
+          <dir name="frontend">
+            <dir name="default">
+              <dir name="default">
+                <dir name="layout">
+                  <dir name="webandpeople">
+                    <file name="custommenu.xml" hash="924c62b611df2b20ef35fccab8c87a86"/>
+                  </dir>
+                </dir>
+                <dir name="template">
+                  <dir name="webandpeople">
+                    <dir name="custommenu">
+                      <file name="top.phtml" hash="7ef0543e00d047e00683bc449fc77f6f"/>
+                    </dir>
+                  </dir>
+                </dir>
+              </dir>
+            </dir>
+          </dir>
+        </dir>
+        <dir name="etc">
+          <dir name="modules">
+            <file name="WP_CustomMenu.xml" hash="cfe1d1974c20f4ac9f2d5ace4916c5ab"/>
+          </dir>
+        </dir>
+      </dir>
+      <dir name="skin">
+        <dir name="frontend">
+          <dir name="default">
+            <dir name="default">
+              <dir name="css">
+                <dir name="webandpeople">
+                  <dir name="custommenu">
+                    <file name="custommenu.css" hash="679d419acd6e2de8a4358c1850926f6c"/>
+                  </dir>
+                </dir>
+              </dir>
+              <dir name="js">
+                <dir name="webandpeople">
+                  <dir name="custommenu">
+                    <file name="custommenu.js" hash="5b19bc1102e0e84a8efd41866d1acd0b"/>
+                  </dir>
+                </dir>
+              </dir>
+            </dir>
+          </dir>
+        </dir>
+      </dir>
+    </target>
+  </contents>
+  <compatible/>
+  <dependencies>
+    <required>
+      <php>
+        <min>5.2.0</min>
+        <max>6.0.0</max>
+      </php>
+    </required>
+  </dependencies>
 </package>

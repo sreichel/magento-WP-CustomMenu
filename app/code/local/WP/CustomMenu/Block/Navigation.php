@@ -20,7 +20,7 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
         $blockId = sprintf(self::CUSTOM_BLOCK_TEMPLATE, $id); // --- static block key
         #Mage::log($blockId);
         $collection = Mage::getModel('cms/block')->getCollection()
-            ->addFieldToFilter('identifier', array('like' => $blockId . '%'))
+            ->addFieldToFilter('identifier', array(array('like' => $blockId . '_w%'), array('eq' => $blockId)))
             ->addFieldToFilter('is_active', 1);
         $blockId = $collection->getFirstItem()->getIdentifier();
         #Mage::log($blockId);
