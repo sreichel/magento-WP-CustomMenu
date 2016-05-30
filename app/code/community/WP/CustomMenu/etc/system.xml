@@ -23,6 +23,7 @@
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
                     <fields>
                         <enabled translate="label comment">
                             <label>Enable</label>
@@ -80,16 +81,16 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </show_home_link>
-                        <non_breaking_space translate="label comment">
-                            <label>Replace spaces with non-breaking spaces</label>
-                            <comment><![CDATA[Insert <b>&amp;nbsp;</b> instead of a space in a name of a menu item]]></comment>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>20</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </non_breaking_space>
+                        <!--non_breaking_space translate="label comment">
+                                                        <label>Replace spaces with non-breaking spaces</label>
+                                                        <comment><![CDATA[Insert <b>&amp;nbsp;</b> instead of a space in a name of a menu item]]></comment>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                                                        <sort_order>20</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </non_breaking_space-->
                         <rtl translate="label">
                             <label>Enable RTL Text mode</label>
                             <frontend_type>select</frontend_type>
@@ -196,5 +197,23 @@
                 </popup>
             </groups>
         </custom_menu>
+        <about_webandpeople translate="label" module="custommenu">
+            <label>About Us</label>
+            <tab>web_and_people</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>99</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <info>
+                    <frontend_model>custommenu/about</frontend_model>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </info>
+            </groups>
+        </about_webandpeople>
     </sections>
 </config>

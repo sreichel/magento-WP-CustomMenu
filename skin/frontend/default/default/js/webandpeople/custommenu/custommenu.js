@@ -215,13 +215,15 @@ function wpSubMenuToggle(obj, activeMenuId, activeSubMenuId)
 
 function wpResetMobileMenuState()
 {
-    $('menu-content').hide();
+    if ($('menu-content') != undefined) $('menu-content').hide();
     $$('.wp-custom-menu-submenu').each(function(item) {
         $(item).hide();
     });
-    $('custommenu-mobile').select('span.button').each(function(item) {
-        $(item).removeClassName('open');
-    });
+    if ($('custommenu-mobile') != undefined) {
+        $('custommenu-mobile').select('span.button').each(function(item) {
+            $(item).removeClassName('open');
+        });
+    }
 }
 
 function wpCustomMenuMobileToggle()
@@ -235,8 +237,8 @@ function wpCustomMenuMobileToggle()
 
     if ((x < 800 || wpIsMobile.any()) && wpMobileMenuEnabled) {
         wpInitMobileMenuContent();
-        $('custommenu').hide();
-        $('custommenu-mobile').show();
+        if ($('custommenu') != undefined) $('custommenu').hide();
+        if ($('custommenu-mobile') != undefined) $('custommenu-mobile').show();
         // --- ajax load ---
         if (wpMoblieMenuAjaxUrl) {
             new Ajax.Request(
@@ -260,9 +262,9 @@ function wpCustomMenuMobileToggle()
             wpMoblieMenuAjaxUrl = null;
         }
     } else {
-        $('custommenu-mobile').hide();
+        if ($('custommenu-mobile') != undefined) $('custommenu-mobile').hide();
         wpResetMobileMenuState();
-        $('custommenu').show();
+        if ($('custommenu') != undefined) $('custommenu').show();
         // --- ajax load ---
         if (wpMenuAjaxUrl) {
             new Ajax.Request(
@@ -277,7 +279,7 @@ function wpCustomMenuMobileToggle()
                                 response = {};
                             }
                         }
-                        if ($('custommenu')) $('custommenu').update(response.topMenu);
+                        if ($('custommenu') != undefined) $('custommenu').update(response.topMenu);
                         wpPopupMenuContent = response.popupMenu;
                     }
                 }
@@ -286,7 +288,7 @@ function wpCustomMenuMobileToggle()
         }
     }
 
-    if ($('custommenu-loading')) $('custommenu-loading').remove();
+    if ($('custommenu-loading') != undefined) $('custommenu-loading').remove();
 }
 
 var wpIsMobile = {

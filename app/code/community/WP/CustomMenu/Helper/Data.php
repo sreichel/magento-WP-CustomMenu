@@ -4,6 +4,30 @@ class WP_CustomMenu_Helper_Data extends Mage_Core_Helper_Abstract
 {
     private $_menuData = null;
 
+    public function saveCurrentCategoryIdToSession()
+    {
+        $currentCategory = Mage::registry('current_category');
+        $currentCategoryId = 0;
+        if (is_object($currentCategory)) {
+            $currentCategoryId = $currentCategory->getId();
+        }
+        Mage::getSingleton('catalog/session')
+            ->setCustomMenuCurrentCategoryId($currentCategoryId);
+    }
+
+    public function initCurrentCategory()
+    {
+        $currentCategoryId = Mage::getSingleton('catalog/session')->getCustomMenuCurrentCategoryId();
+        $currentCategory = null;
+        if ($currentCategoryId) {
+            $currentCategory = Mage::getModel('catalog/category')
+                ->setStoreId(Mage::app()->getStore()->getId())
+                ->load($currentCategoryId);
+        }
+        Mage::unregister('current_category');
+        Mage::register('current_category', $currentCategory);
+    }
+
     public function getMenuData()
     {
         if (!is_null($this->_menuData)) return $this->_menuData;

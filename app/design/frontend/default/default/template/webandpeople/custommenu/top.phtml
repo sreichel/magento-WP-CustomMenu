@@ -1,8 +1,9 @@
 <?php
+    Mage::helper('custommenu')->saveCurrentCategoryIdToSession();
     $menuData = Mage::helper('custommenu')->getMenuData();
     extract($menuData);
     // ---
-    $txtLoading = $this->__('Loading...');
+    $txtLoading = '';
     $txtMenu = $this->__('Menu');
     $xRtl = $_rtl ? ' rtl' : '';
     $wpInitContent = <<<HTML
@@ -61,7 +62,9 @@ var wpMenuAjaxUrl = '<?php echo $_menuAjaxUrl; ?>';
 var wpMoblieMenuAjaxUrl = '<?php echo $_moblieMenuAjaxUrl; ?>';
 var wpPopupMenuContent = '';
 var wpMobileMenuContent = '';
-$('wp-nav-container').update(Base64.decode('<?php echo base64_encode($wpInitContent); ?>'));
+if ($('wp-nav-container') != undefined) {
+    $('wp-nav-container').update(<?php echo Mage::helper('core')->jsonEncode($wpInitContent); ?>);
+}
 <?php if (Mage::getStoreConfig('custom_menu/general/ajax_load_content')) : ?>
 wpCustomMenuMobileToggle();
 Event.observe(window, 'resize', function() {

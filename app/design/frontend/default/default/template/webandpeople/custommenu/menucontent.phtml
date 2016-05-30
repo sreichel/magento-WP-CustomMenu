@@ -1,14 +1,16 @@
-<?php $menuContent = Mage::helper('custommenu')->getMenuContent(); ?>
 <script type="text/javascript">
 //<![CDATA[
-if ($('custommenu')) $('custommenu').update(Base64.decode('<?php echo base64_encode($menuContent['topMenu']); ?>'));
-wpPopupMenuContent = Base64.decode('<?php echo base64_encode($menuContent['popupMenu']); ?>');
+<?php $menuContent = Mage::helper('custommenu')->getMenuContent(); ?>
+if ($('custommenu') != undefined) {
+    $('custommenu').update(<?php echo Mage::helper('core')->jsonEncode($menuContent['topMenu']); ?>);
+}
+wpPopupMenuContent = <?php echo Mage::helper('core')->jsonEncode($menuContent['popupMenu']); ?>;
 //]]>
 </script>
-<?php $mobileMenuContent = Mage::helper('custommenu')->getMobileMenuContent(); ?>
 <script type="text/javascript">
 //<![CDATA[
-wpMobileMenuContent = Base64.decode('<?php echo base64_encode($mobileMenuContent); ?>');
+<?php $mobileMenuContent = Mage::helper('custommenu')->getMobileMenuContent(); ?>
+wpMobileMenuContent = <?php echo Mage::helper('core')->jsonEncode($mobileMenuContent); ?>;
 wpCustomMenuMobileToggle();
 Event.observe(window, 'resize', function() {
     wpCustomMenuMobileToggle();
