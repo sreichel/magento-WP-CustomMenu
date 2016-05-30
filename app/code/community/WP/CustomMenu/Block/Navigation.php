@@ -22,7 +22,7 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
         $html[] = '<div id="menu-mobile-' . $id . '" class="menu-mobile level0' . $active . '">';
         $html[] = '<div class="parentMenu">';
         // --- Top Menu Item ---
-        $html[] = '<a href="' . $catUrl .'">';
+        $html[] = '<a class="level' . $level . $active . '" href="' . $catUrl .'">';
         $name = $this->escapeHtml($category->getName());
         if (Mage::getStoreConfig('custom_menu/general/non_breaking_space')) {
             $name = str_replace(' ', '&nbsp;', $name);
@@ -84,9 +84,9 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
         // --- Top Menu Item ---
         $htmlTop[] = '<div class="parentMenu">';
         if ($level == 0 && $drawPopup) {
-            $htmlTop[] = '<a href="javascript:void(0);" rel="'.$this->getCategoryUrl($category).'">';
+            $htmlTop[] = '<a  class="level' . $level . $active . '" href="javascript:void(0);" rel="'.$this->getCategoryUrl($category).'">';
         } else {
-            $htmlTop[] = '<a href="'.$this->getCategoryUrl($category).'">';
+            $htmlTop[] = '<a  class="level' . $level . $active . '" href="'.$this->getCategoryUrl($category).'">';
         }
         $name = $this->escapeHtml($category->getName());
         if (Mage::getStoreConfig('custom_menu/general/non_breaking_space')) {
@@ -140,7 +140,7 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
                 $name = $this->escapeHtml($child->getName());
                 if (Mage::getStoreConfig('custom_menu/general/non_breaking_space')) $name = str_replace(' ', '&nbsp;', $name);
                 $html.= '<div class="parentMenu">';
-                $html.= '<a class="itemMenuName level' . $level . '" href="' . $this->getCategoryUrl($child) . '"><span>' . $name . '</span></a>';
+                $html.= '<a class="itemMenuName level' . $level . $active . '" href="' . $this->getCategoryUrl($child) . '"><span>' . $name . '</span></a>';
                 if (count($activeChildren) > 0) {
                     $html.= '<span class="button" rel="submenu-mobile-' . $id . '" onclick="wpSubMenuToggle(this, \'menu-mobile-' . $id . '\', \'submenu-mobile-' . $id . '\');">&nbsp;</span>';
                 }

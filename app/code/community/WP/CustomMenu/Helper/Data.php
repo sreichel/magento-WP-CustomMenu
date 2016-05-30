@@ -54,6 +54,7 @@ class WP_CustomMenu_Helper_Data extends Mage_Core_Helper_Abstract
             '_popupDelayBeforeHiding'       => Mage::getStoreConfig('custom_menu/popup/delay_hiding') + 0,
             '_rtl'                          => Mage::getStoreConfig('custom_menu/general/rtl') + 0,
             '_mobileMenuEnabled'            => Mage::getStoreConfig('custom_menu/general/mobile_menu') + 0,
+            '_mobileMenuWidthInit'          => Mage::getStoreConfig('custom_menu/general/mobile_menu_width_init') + 0,
         );
         return $this->_menuData;
     }
@@ -126,6 +127,7 @@ HTML;
             $topMenuContent = implode("\n", $topMenuArray);
         }
         $popupMenuArray = $_block->getPopupMenuArray();
+        $popupMenuContent = '';
         if (count($popupMenuArray)) {
             $popupMenuContent = implode("\n", $popupMenuArray);
         }

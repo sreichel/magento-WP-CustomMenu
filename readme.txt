@@ -5,6 +5,9 @@ Thank you for choosing the Web-Experiment Magento extension.
 
 INSTALLATION GUIDE
 Please find the installation guide here:
+http://web-experiment.info/articles/cat/custom_menu/post/wp_custom_menu/
+
+General guides page for the extension:
 http://web-experiment.info/articles/cat/custom_menu/
 
 SUPPORT

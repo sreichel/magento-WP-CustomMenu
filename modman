@@ -1,6 +1,10 @@
 app/code/community/WP/CustomMenu                                        app/code/community/WP/CustomMenu/
-app/design/default/default/default/layout/webandpeople/*                app/design/default/default/default/layout/webandpeople/
-app/design/default/default/default/template/webandpeople/custommenu     app/design/default/default/default/template/webandpeople/custommenu
+app/design/frontend/default/default/layout/webandpeople/*               app/design/frontend/default/default/layout/webandpeople/
+app/design/frontend/default/default/template/webandpeople/custommenu    app/design/frontend/default/default/template/webandpeople/custommenu
+app/design/frontend/rwd/default/layout/webandpeople/*                   app/design/frontend/rwd/default/layout/webandpeople/
+app/design/frontend/rwd/default/template/webandpeople/custommenu        app/design/frontend/rwd/default/template/webandpeople/custommenu
 app/etc/modules/*                                                       app/etc/modules/
-skin/default/default/default/css/webandpeople/custommenu/*              skin/default/default/default/css/webandpeople/custommenu/
-skin/default/default/default/js/webandpeople/custommenu/*               skin/default/default/default/js/webandpeople/custommenu/
+skin/frontend/default/default/css/webandpeople/custommenu/*             skin/frontend/default/default/css/webandpeople/custommenu/
+skin/frontend/default/default/js/webandpeople/custommenu/*              skin/frontend/default/default/js/webandpeople/custommenu/
+skin/frontend/rwd/default/css/webandpeople/custommenu/*                 skin/frontend/rwd/default/css/webandpeople/custommenu/
+skin/frontend/rwd/default/js/webandpeople/custommenu/*                  skin/frontend/rwd/default/js/webandpeople/custommenu/

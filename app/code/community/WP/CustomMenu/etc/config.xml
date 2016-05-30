@@ -2,7 +2,7 @@
 <config>
     <modules>
         <WP_CustomMenu>
-            <version>2.9.0</version>
+            <version>2.10.0</version>
         </WP_CustomMenu>
     </modules>
     <frontend>
@@ -59,7 +59,7 @@
             <page>
                 <rewrite>
                     <html_topmenu>WP_CustomMenu_Block_Topmenu</html_topmenu>
-                    <!-- v1.7 -->
+                    <!-- v1.7+ -->
                 </rewrite>
             </page>
             <custommenu>
@@ -75,15 +75,16 @@
     <default>
         <custom_menu>
             <general>
+                <version>2.10.0</version>
                 <enabled>1</enabled>
                 <ajax_load_content>0</ajax_load_content>
                 <mobile_menu>1</mobile_menu>
+                <mobile_menu_width_init>771</mobile_menu_width_init>
                 <display_empty_categories>1</display_empty_categories>
                 <max_level>3</max_level>
                 <show_home_link>1</show_home_link>
                 <non_breaking_space>0</non_breaking_space>
                 <rtl>0</rtl>
-                <version>2.9.0</version>
             </general>
             <columns>
                 <count>3</count>

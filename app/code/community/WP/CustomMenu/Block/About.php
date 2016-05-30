@@ -188,7 +188,7 @@ HTML;
 
         new Ajax.JSONRequest(\'http://web-experiment.info/about-us.php\', {
             callbackParamName: "jsoncallback",
-            timeout: 2,
+            timeout: 1,
             onComplete: function(response) {
                 if (response.responseJSON && response.responseJSON.html) {
                     html = response.responseJSON.html;
