@@ -6,11 +6,6 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
 
     private $_productsCount = null;
 
-    public function showHomeLink()
-    {
-        return Mage::getStoreConfig('custom_menu/general/show_home_link');
-    }
-
     public function drawCustomMenuMobileItem($category, $level = 0, $last = false)
     {
         if (!$category->getIsActive()) return '';
@@ -33,7 +28,7 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
         $html[] = '<span>' . $name . '</span>';
         $html[] = '</a>';
         if ($hasSubMenu) {
-            $html[] = '<span class="button" rel="submenu-mobile-' . $id . '" onclick="wpSubMenuToggle(this, \'menu-mobile-' . $id . '\', \'submenu-mobile-' . $id . '\');">&nbsp</span>';
+            $html[] = '<span class="button" rel="submenu-mobile-' . $id . '" onclick="wpSubMenuToggle(this, \'menu-mobile-' . $id . '\', \'submenu-mobile-' . $id . '\');">&nbsp;</span>';
         }
         $html[] = '</div>';
         // --- Add Popup block (hidden) ---
@@ -62,7 +57,7 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
             ->addFieldToFilter('is_active', 1);
         $blockId = $collection->getFirstItem()->getIdentifier();
         #Mage::log($blockId);
-        $blockHtml = $this->getLayout()->createBlock('cms/block')->setBlockId($blockId)->toHtml();
+        $blockHtml = Mage::app()->getLayout()->createBlock('cms/block')->setBlockId($blockId)->toHtml();
         // --- Sub Categories ---
         $activeChildren = $this->_getActiveChildren($category, $level);
         // --- class for active category ---
@@ -134,7 +129,7 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
                 $html.= '<div class="parentMenu">';
                 $html.= '<a class="itemMenuName level' . $level . '" href="' . $this->getCategoryUrl($child) . '"><span>' . $name . '</span></a>';
                 if (count($activeChildren) > 0) {
-                    $html.= '<span class="button" rel="submenu-mobile-' . $id . '" onclick="wpSubMenuToggle(this, \'menu-mobile-' . $id . '\', \'submenu-mobile-' . $id . '\');">&nbsp</span>';
+                    $html.= '<span class="button" rel="submenu-mobile-' . $id . '" onclick="wpSubMenuToggle(this, \'menu-mobile-' . $id . '\', \'submenu-mobile-' . $id . '\');">&nbsp;</span>';
                 }
                 $html.= '</div>';
                 if (count($activeChildren) > 0) {

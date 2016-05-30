@@ -2,10 +2,19 @@
 <config>
     <modules>
         <WP_CustomMenu>
-            <version>2.5.2</version>
+            <version>2.5.7</version>
         </WP_CustomMenu>
     </modules>
     <frontend>
+        <routers>
+            <custommenu>
+                <use>standard</use>
+                <args>
+                    <frontName>custommenu</frontName>
+                    <module>WP_CustomMenu</module>
+                </args>
+            </custommenu>
+        </routers>
         <layout>
             <updates>
                 <custommenu>
@@ -67,13 +76,16 @@
         <custom_menu>
             <general>
                 <enabled>1</enabled>
+                <ajax_load_content>0</ajax_load_content>
+                <move_code_to_bottom>0</move_code_to_bottom>
+                <mobile_menu>1</mobile_menu>
                 <display_empty_categories>1</display_empty_categories>
                 <max_level>3</max_level>
                 <show_home_link>1</show_home_link>
                 <non_breaking_space>0</non_breaking_space>
                 <ie6_ignore>1</ie6_ignore>
                 <rtl>0</rtl>
-                <version>2.5.2</version>
+                <version>2.5.7</version>
             </general>
             <columns>
                 <count>3</count>
@@ -83,8 +95,8 @@
             <popup>
                 <width>0</width>
                 <top_offset>0</top_offset>
-                <delay_displaying>0</delay_displaying>
-                <delay_hiding>0</delay_hiding>
+                <delay_displaying>150</delay_displaying>
+                <delay_hiding>100</delay_hiding>
             </popup>
         </custom_menu>
     </default>

@@ -1,0 +1,12 @@
+<?php $menuContent = Mage::helper('custommenu')->getMenuContent(); ?>
+<script type="text/javascript">
+//<![CDATA[
+if ($('custommenu')) $('custommenu').update(<?php echo Zend_Json::encode($menuContent); ?>);
+//]]>
+</script>
+<?php $mobileMenuContent = Mage::helper('custommenu')->getMobileMenuContent(); ?>
+<script type="text/javascript">
+//<![CDATA[
+if ($('menu-content')) $('menu-content').update(<?php echo Zend_Json::encode($mobileMenuContent); ?>);
+//]]>
+</script>

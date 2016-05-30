@@ -1,57 +1,59 @@
-<?php
-    $_rtl           = Mage::getStoreConfig('custom_menu/general/rtl') + 0;
-    $_categories    = $this->getStoreCategories();
-    if (is_object($_categories)) $_categories = $this->getStoreCategories()->getNodes();
-?>
+<?php $menuData = Mage::helper('custommenu')->getMenuData(); extract($menuData); ?>
 <div class="nav-container">
-    <div id="custommenu" class="<?php echo $_rtl ? ' rtl' : ''; ?>">
-        <?php if ($this->showHomeLink()) : ?>
+    <div id="custommenu-loading" class="<?php echo $_rtl ? ' rtl' : ''; ?>">
         <div class="menu">
             <div class="parentMenu menu0">
-                <a href="<?php echo $this->getUrl('') ?>">
-                    <span><?php echo $this->__('Home'); ?></span>
+                <a href="javascript:;">
+                    <span><?php echo $this->__('Loading...'); ?></span>
                 </a>
             </div>
         </div>
-        <?php endif ?>
-        <?php foreach ($_categories as $_category): ?>
-            <?php echo $this->drawCustomMenuItem($_category) ?>
-        <?php endforeach ?>
+        <div class="clearBoth"></div>
+    </div>
+    <div id="custommenu" class="<?php echo $_rtl ? ' rtl' : ''; ?>" style="display:none;">
+        <div class="menu">
+            <div class="parentMenu menu0">
+                <a href="javascript:;">
+                    <span><?php echo $this->__('Loading...'); ?></span>
+                </a>
+            </div>
+        </div>
         <div class="clearBoth"></div>
     </div>
     <div id="custommenu-mobile" class="<?php echo $_rtl ? ' rtl' : ''; ?>" style="display:none;">
         <div id="menu-button" onclick="wpMenuButtonToggle()">
             <a href="javascript:void(0);">
-                <span>Menu</span>
+                <span><?php echo $this->__('Menu'); ?></span>
             </a>
         </div>
         <div id="menu-content" style="display:none;">
-            <?php if ($this->showHomeLink()) : ?>
-            <div id="menu-mobile-0" class="menu-mobile level0">
+            <div id="menu-mobile-loading" class="menu-mobile level0">
                 <div class="parentMenu">
-                    <a href="<?php echo $this->getUrl('') ?>">
-                        <span><?php echo $this->__('Home'); ?></span>
+                    <a href="javascript:;">
+                        <span><?php echo $this->__('Loading...'); ?></span>
                     </a>
                 </div>
             </div>
-            <?php endif ?>
-            <?php foreach ($_categories as $_category): ?>
-                <?php echo $this->drawCustomMenuMobileItem($_category) ?>
-            <?php endforeach ?>
             <div class="clearBoth"></div>
         </div>
     </div>
 </div>
 <script type="text/javascript">
 //<![CDATA[
-var CUSTOMMENU_POPUP_WIDTH = <?php echo Mage::getStoreConfig('custom_menu/popup/width') + 0; ?>;
-var CUSTOMMENU_POPUP_TOP_OFFSET = <?php echo Mage::getStoreConfig('custom_menu/popup/top_offset') + 0; ?>;
-var CUSTOMMENU_POPUP_DELAY_BEFORE_DISPLAYING = <?php echo Mage::getStoreConfig('custom_menu/popup/delay_displaying') + 0; ?>;
-var CUSTOMMENU_POPUP_DELAY_BEFORE_HIDING = <?php echo Mage::getStoreConfig('custom_menu/popup/delay_hiding') + 0; ?>;
+var CUSTOMMENU_POPUP_WIDTH = <?php echo $_popupWidth; ?>;
+var CUSTOMMENU_POPUP_TOP_OFFSET = <?php echo $_popupTopOffset; ?>;
+var CUSTOMMENU_POPUP_DELAY_BEFORE_DISPLAYING = <?php echo $_popupDelayBeforeDisplaying; ?>;
+var CUSTOMMENU_POPUP_DELAY_BEFORE_HIDING = <?php echo $_popupDelayBeforeHiding; ?>;
 var CUSTOMMENU_RTL_MODE = <?php echo $_rtl; ?>;
 var wpCustommenuTimerShow = {};
 var wpCustommenuTimerHide = {};
 var wpActiveMenu = null;
+var wpMobileMenuEnabled = <?php echo $_mobileMenuEnabled; ?>;
+var wpMenuAjaxUrl = '<?php echo $_menuAjaxUrl; ?>';
+var wpMoblieMenuAjaxUrl = '<?php echo $_moblieMenuAjaxUrl; ?>';
 wpCustomMenuMobileToggle();
+Event.observe(window, 'resize', function() {
+    wpCustomMenuMobileToggle();
+});
 //]]>
 </script>
