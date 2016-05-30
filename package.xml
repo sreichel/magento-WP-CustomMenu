@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package>
   <name>wp_custom_menu</name>
-  <version>2.5.7</version>
+  <version>2.5.8</version>
   <stability>stable</stability>
   <license uri="http://web-experiment.info/regular_free_license">Web-Experiment.Info Regular Free License</license>
   <channel>community</channel>
   <extends/>
   <summary>Magento Extension - Magento Custom Menu (Web-Experiment.Info)</summary>
   <description>Magento Extension - Magento Custom Menu (Web-Experiment.Info)</description>
-  <notes>~ default values, + jQuery: check exists</notes>
+  <notes>Изменил расположение папки расширния, переместив из local в community</notes>
   <authors>
     <author>
       <name>WebAndPeople</name>
@@ -21,17 +21,16 @@
       <email>y.gerassimenko@webandpeople.com</email>
     </author>
   </authors>
-  <date>2014-01-23</date>
-  <time>13:04:28</time>
+  <date>2014-03-20</date>
+  <time>12:36:01</time>
   <contents>
     <target name="mageweb">
       <dir name="app">
         <dir name="code">
-          <dir name="local">
+          <dir name="community">
             <dir name="WP">
               <dir name="CustomMenu">
                 <dir name="Block">
-                  <file name="About.php" hash="c7770064d9bbd15f841b8f8d65aafe19"/>
                   <file name="Navigation.php" hash="87be6224e66862e0562d30977277503c"/>
                   <file name="Toggle.php" hash="c0e3299c7ce19041edb481ff09ab22c7"/>
                   <file name="Topmenu.php" hash="7102b3bf0473dc5ecb0d66c12bfc6a95"/>
@@ -44,8 +43,8 @@
                   <file name="AjaxmobilemenucontentController.php" hash="7b1690de9885838fb6f483136eed3a06"/>
                 </dir>
                 <dir name="etc">
-                  <file name="config.xml" hash="cb9f2e0bb3f6e822f7bb7c88887802fd"/>
-                  <file name="system.xml" hash="64cafadbaacd02165a008a83a4223bb1"/>
+                  <file name="config.xml" hash="de23ba8f0f2ed3ec5e59fcc8eaaeb5ed"/>
+                  <file name="system.xml" hash="c8df283cdc4662e977c4b7479f09e14d"/>
                 </dir>
               </dir>
             </dir>
@@ -74,7 +73,7 @@
         </dir>
         <dir name="etc">
           <dir name="modules">
-            <file name="WP_CustomMenu.xml" hash="cfe1d1974c20f4ac9f2d5ace4916c5ab"/>
+            <file name="WP_CustomMenu.xml" hash="c367e72a4fd849f0eb777634ca2d422c"/>
           </dir>
         </dir>
       </dir>

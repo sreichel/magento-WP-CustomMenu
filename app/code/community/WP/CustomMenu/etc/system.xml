@@ -218,23 +218,5 @@
                 </popup>
             </groups>
         </custom_menu>
-        <about_webandpeople translate="label" module="custommenu">
-            <label>About Us</label>
-            <tab>web_and_people</tab>
-            <frontend_type>text</frontend_type>
-            <sort_order>99</sort_order>
-            <show_in_default>1</show_in_default>
-            <show_in_website>1</show_in_website>
-            <show_in_store>1</show_in_store>
-            <groups>
-                <info>
-                    <frontend_model>custommenu/about</frontend_model>
-                    <sort_order>10</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                </info>
-            </groups>
-        </about_webandpeople>
     </sections>
 </config>

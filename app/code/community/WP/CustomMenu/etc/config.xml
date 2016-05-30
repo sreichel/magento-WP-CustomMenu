@@ -2,9 +2,10 @@
 <config>
     <modules>
         <WP_CustomMenu>
-            <version>2.5.7</version>
+            <version>2.5.8</version>
         </WP_CustomMenu>
     </modules>
+
     <frontend>
         <routers>
             <custommenu>
@@ -23,6 +24,7 @@
             </updates>
         </layout>
     </frontend>
+
     <adminhtml>
         <acl>
             <resources>
@@ -48,18 +50,17 @@
             </resources>
         </acl>
     </adminhtml>
+
     <global>
         <blocks>
             <catalog>
                 <rewrite>
-                    <navigation>WP_CustomMenu_Block_Navigation</navigation>
-                    <!-- v1.4-1.6 -->
+                    <navigation>WP_CustomMenu_Block_Navigation</navigation><!-- v1.4-1.6 -->
                 </rewrite>
             </catalog>
             <page>
                 <rewrite>
-                    <html_topmenu>WP_CustomMenu_Block_Topmenu</html_topmenu>
-                    <!-- v1.7 -->
+                    <html_topmenu>WP_CustomMenu_Block_Topmenu</html_topmenu><!-- v1.7 -->
                 </rewrite>
             </page>
             <custommenu>
@@ -72,6 +73,7 @@
             </custommenu>
         </helpers>
     </global>
+
     <default>
         <custom_menu>
             <general>
@@ -85,7 +87,7 @@
                 <non_breaking_space>0</non_breaking_space>
                 <ie6_ignore>1</ie6_ignore>
                 <rtl>0</rtl>
-                <version>2.5.7</version>
+                <version>2.5.8</version>
             </general>
             <columns>
                 <count>3</count>
@@ -100,26 +102,4 @@
             </popup>
         </custom_menu>
     </default>
-    <adminhtml>
-        <acl>
-            <resources>
-                <admin>
-                    <children>
-                        <system>
-                            <children>
-                                <config>
-                                    <children>
-                                        <about_webandpeople translate="title" module="custommenu">
-                                            <title><![CDATA[Web & People: About Us]]></title>
-                                            <sort_order>1000</sort_order>
-                                        </about_webandpeople>
-                                    </children>
-                                </config>
-                            </children>
-                        </system>
-                    </children>
-                </admin>
-            </resources>
-        </acl>
-    </adminhtml>
 </config>

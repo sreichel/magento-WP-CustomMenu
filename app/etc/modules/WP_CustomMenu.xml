@@ -3,7 +3,7 @@
     <modules>
         <WP_CustomMenu>
             <active>true</active>
-            <codePool>local</codePool>
+            <codePool>community</codePool>
         </WP_CustomMenu>
     </modules>
-</config> 
+</config>

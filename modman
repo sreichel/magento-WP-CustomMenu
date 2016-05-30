@@ -1,4 +1,4 @@
-app/code/local/WP/CustomMenu                                            app/code/local/WP/CustomMenu/
+app/code/community/WP/CustomMenu                                        app/code/community/WP/CustomMenu/
 app/design/default/default/default/layout/webandpeople/*                app/design/default/default/default/layout/webandpeople/
 app/design/default/default/default/template/webandpeople/custommenu     app/design/default/default/default/template/webandpeople/custommenu
 app/etc/modules/*                                                       app/etc/modules/
