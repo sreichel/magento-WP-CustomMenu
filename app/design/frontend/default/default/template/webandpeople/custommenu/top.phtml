@@ -1,43 +1,51 @@
-<?php $menuData = Mage::helper('custommenu')->getMenuData(); extract($menuData); ?>
-<div class="nav-container">
-    <div id="custommenu-loading" class="<?php echo $_rtl ? ' rtl' : ''; ?>">
+<?php
+    $menuData = Mage::helper('custommenu')->getMenuData();
+    extract($menuData);
+    // ---
+    $txtLoading = $this->__('Loading...');
+    $txtMenu = $this->__('Menu');
+    $xRtl = $_rtl ? ' rtl' : '';
+    $wpInitContent = <<<HTML
+    <div id="custommenu-loading" class="$xRtl">
         <div class="menu">
             <div class="parentMenu menu0">
                 <a href="javascript:;">
-                    <span><?php echo $this->__('Loading...'); ?></span>
+                    <span>$txtLoading</span>
                 </a>
             </div>
         </div>
         <div class="clearBoth"></div>
     </div>
-    <div id="custommenu" class="<?php echo $_rtl ? ' rtl' : ''; ?>" style="display:none;">
+    <div id="custommenu" class="$xRtl" style="display:none;">
         <div class="menu">
             <div class="parentMenu menu0">
                 <a href="javascript:;">
-                    <span><?php echo $this->__('Loading...'); ?></span>
+                    <span>$txtLoading</span>
                 </a>
             </div>
         </div>
         <div class="clearBoth"></div>
     </div>
-    <div id="custommenu-mobile" class="<?php echo $_rtl ? ' rtl' : ''; ?>" style="display:none;">
+    <div id="custommenu-mobile" class="$xRtl" style="display:none;">
         <div id="menu-button" onclick="wpMenuButtonToggle()">
             <a href="javascript:void(0);">
-                <span><?php echo $this->__('Menu'); ?></span>
+                <span>$txtMenu</span>
             </a>
         </div>
         <div id="menu-content" style="display:none;">
             <div id="menu-mobile-loading" class="menu-mobile level0">
                 <div class="parentMenu">
                     <a href="javascript:;">
-                        <span><?php echo $this->__('Loading...'); ?></span>
+                        <span>$txtLoading</span>
                     </a>
                 </div>
             </div>
             <div class="clearBoth"></div>
         </div>
     </div>
-</div>
+HTML;
+?>
+<div class="nav-container" id="wp-nav-container"></div>
 <script type="text/javascript">
 //<![CDATA[
 var CUSTOMMENU_POPUP_WIDTH = <?php echo $_popupWidth; ?>;
@@ -53,9 +61,12 @@ var wpMenuAjaxUrl = '<?php echo $_menuAjaxUrl; ?>';
 var wpMoblieMenuAjaxUrl = '<?php echo $_moblieMenuAjaxUrl; ?>';
 var wpPopupMenuContent = '';
 var wpMobileMenuContent = '';
+$('wp-nav-container').update(Base64.decode('<?php echo base64_encode($wpInitContent); ?>'));
+<?php if (Mage::getStoreConfig('custom_menu/general/ajax_load_content')) : ?>
 wpCustomMenuMobileToggle();
 Event.observe(window, 'resize', function() {
     wpCustomMenuMobileToggle();
 });
+<?php endif; ?>
 //]]>
 </script>

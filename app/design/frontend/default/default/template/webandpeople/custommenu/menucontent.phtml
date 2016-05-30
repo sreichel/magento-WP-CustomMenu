@@ -9,5 +9,9 @@ wpPopupMenuContent = Base64.decode('<?php echo base64_encode($menuContent['popup
 <script type="text/javascript">
 //<![CDATA[
 wpMobileMenuContent = Base64.decode('<?php echo base64_encode($mobileMenuContent); ?>');
+wpCustomMenuMobileToggle();
+Event.observe(window, 'resize', function() {
+    wpCustomMenuMobileToggle();
+});
 //]]>
 </script>
