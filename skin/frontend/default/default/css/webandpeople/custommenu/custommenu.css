@@ -1,10 +1,10 @@
 #custommenu {
     position:relative;
-    z-index:1000;
     font-size: 14px;
     margin: 0 auto;
     padding: 0 16px;
     width: 918px;
+    z-index: 999;
 }
 div.menu {
     float: left;
@@ -15,7 +15,7 @@ div.menu.act {
 div.menu.active {
     background-color:#FFC0CB;
 }
-div.popup {
+div.wp-custom-menu-popup {
     position:absolute;
     z-index:3000;
     border:5px solid #FFC0CB;
@@ -23,17 +23,17 @@ div.popup {
     background-color:#fff;
     text-align:left;
 }
-div.menu, div.popup {
+div.menu, div.wp-custom-menu-popup {
     padding: 5px 12px 6px 8px;
 }
-div.menu a, div.popup a {
+div.menu a, div.wp-custom-menu-popup a {
     text-decoration: none;
     display:block;
 }
-div.popup a.actParent {
+div.wp-custom-menu-popup a.actParent {
     color: #4D4D4D;
 }
-div.popup a.act {
+div.wp-custom-menu-popup a.act {
     color: #A52A2A;
 }
 div.column {
@@ -46,4 +46,10 @@ div.itemSubMenu {
 }
 .clearBoth {
     clear:both;
+}
+#custommenu.rtl .menu {
+    float: right;
+}
+#custommenu.rtl div.column {
+    text-align: right;
 }

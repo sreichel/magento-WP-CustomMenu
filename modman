@@ -1,6 +1,6 @@
 app/code/local/WP/CustomMenu                                app/code/local/WP/CustomMenu/
-app/design/base/default/default/layout/*                    app/design/base/default/default/layout/
-app/design/base/default/default/template/custommenu         app/design/base/default/default/template/custommenu
+app/design/default/default/default/layout/*                 app/design/default/default/default/layout/
+app/design/default/default/default/template/custommenu      app/design/default/default/default/template/custommenu
 app/etc/modules/*                                           app/etc/modules/
-skin/base/default/default/css/*                             skin/base/default/default/css/
-skin/base/default/default/js/*                              skin/base/default/default/js/
+skin/default/default/default/css/*                          skin/default/default/default/css/
+skin/default/default/default/js/*                           skin/default/default/default/js/
