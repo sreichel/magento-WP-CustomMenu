@@ -51,6 +51,8 @@ var wpActiveMenu = null;
 var wpMobileMenuEnabled = <?php echo $_mobileMenuEnabled; ?>;
 var wpMenuAjaxUrl = '<?php echo $_menuAjaxUrl; ?>';
 var wpMoblieMenuAjaxUrl = '<?php echo $_moblieMenuAjaxUrl; ?>';
+var wpPopupMenuContent = '';
+var wpMobileMenuContent = '';
 wpCustomMenuMobileToggle();
 Event.observe(window, 'resize', function() {
     wpCustomMenuMobileToggle();

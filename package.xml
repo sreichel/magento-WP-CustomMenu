@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package>
   <name>wp_custom_menu</name>
-  <version>2.5.8</version>
+  <version>2.6.0</version>
   <stability>stable</stability>
   <license uri="http://web-experiment.info/regular_free_license">Web-Experiment.Info Regular Free License</license>
   <channel>community</channel>
   <extends/>
   <summary>Magento Extension - Magento Custom Menu (Web-Experiment.Info)</summary>
   <description>Magento Extension - Magento Custom Menu (Web-Experiment.Info)</description>
-  <notes>Изменил расположение папки расширния, переместив из local в community</notes>
+  <notes>Скрыл попап окна от поисковых систем через отложенную инициализацию (по клику или наведению). Убрал параметры Display standard menu in IE6 browser (иначе поисковым ботам, представляющимся как ие6 показывается стандартное меню). Убрал параметр Move content to the bottom (теперь исходный код меню всегда в конце исходного кода страницы, либо его вообще нет, если подгрузка осуществляется аяксом). Если исходный код меню подгружается сразу, а не через аякс, то он кодируется в base64 для однозначного скрытия содержимого меню от любопытных поисковых ботов.</notes>
   <authors>
     <author>
       <name>WebAndPeople</name>
@@ -21,8 +21,8 @@
       <email>y.gerassimenko@webandpeople.com</email>
     </author>
   </authors>
-  <date>2014-03-20</date>
-  <time>12:36:01</time>
+  <date>2014-03-24</date>
+  <time>22:31:31</time>
   <contents>
     <target name="mageweb">
       <dir name="app">
@@ -31,20 +31,20 @@
             <dir name="WP">
               <dir name="CustomMenu">
                 <dir name="Block">
-                  <file name="Navigation.php" hash="87be6224e66862e0562d30977277503c"/>
-                  <file name="Toggle.php" hash="c0e3299c7ce19041edb481ff09ab22c7"/>
-                  <file name="Topmenu.php" hash="7102b3bf0473dc5ecb0d66c12bfc6a95"/>
+                  <file name="Navigation.php" hash="f1ec03151889346c5193c3296b556d5b"/>
+                  <file name="Toggle.php" hash="382ed26b5801f1ca263d3a7b9c21ef40"/>
+                  <file name="Topmenu.php" hash="baf91d07f38b733b3e09957ccab4db4d"/>
                 </dir>
                 <dir name="Helper">
-                  <file name="Data.php" hash="3fc8215a159463e064f9673e6b9c6a7b"/>
+                  <file name="Data.php" hash="be43d5f1ef1a48c7d8ff9a20f1eeac5f"/>
                 </dir>
                 <dir name="controllers">
-                  <file name="AjaxmenucontentController.php" hash="7e4b0f04147ede2a9405181e1056fd19"/>
-                  <file name="AjaxmobilemenucontentController.php" hash="7b1690de9885838fb6f483136eed3a06"/>
+                  <file name="AjaxmenucontentController.php" hash="8a92f7613cda2a7be6e44adb96da51e3"/>
+                  <file name="AjaxmobilemenucontentController.php" hash="b2bacb5ba79b3be8d3e2ae1b85472507"/>
                 </dir>
                 <dir name="etc">
-                  <file name="config.xml" hash="de23ba8f0f2ed3ec5e59fcc8eaaeb5ed"/>
-                  <file name="system.xml" hash="c8df283cdc4662e977c4b7479f09e14d"/>
+                  <file name="config.xml" hash="289c215691ef34d5f9bac685269af522"/>
+                  <file name="system.xml" hash="cfd74237b0ab914323f82113923797e8"/>
                 </dir>
               </dir>
             </dir>
@@ -62,8 +62,8 @@
                 <dir name="template">
                   <dir name="webandpeople">
                     <dir name="custommenu">
-                      <file name="menucontent.phtml" hash="c6aacc6cd49e638f08e90803183fed7b"/>
-                      <file name="top.phtml" hash="e57f1dc563d8cd5c7bfd39bdf58afd50"/>
+                      <file name="menucontent.phtml" hash="885ff80797a1b95494f16dc828369c3d"/>
+                      <file name="top.phtml" hash="eb59b9d6384c118e47c5233ede50c1f2"/>
                     </dir>
                   </dir>
                 </dir>
@@ -91,7 +91,8 @@
               <dir name="js">
                 <dir name="webandpeople">
                   <dir name="custommenu">
-                    <file name="custommenu.js" hash="f3a0fc60503e5db502d0e34f7d72c665"/>
+                    <file name="custommenu.js" hash="35d6faec0ab484f0304a414cc3a1b5bd"/>
+                    <file name="webtoolkit.base64.js" hash="d464b20d386bdc75f1eb05ff4963f446"/>
                   </dir>
                 </dir>
               </dir>

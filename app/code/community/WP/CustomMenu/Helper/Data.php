@@ -4,27 +4,13 @@ class WP_CustomMenu_Helper_Data extends Mage_Core_Helper_Abstract
 {
     private $_menuData = null;
 
-    public function isIE6()
-    {
-        if (!isset($_SERVER['HTTP_USER_AGENT'])) return;
-        $userAgent = $_SERVER['HTTP_USER_AGENT'];
-        preg_match('/MSIE ([0-9]{1,}[\.0-9]{0,})/', $userAgent, $matches);
-        if (!isset($matches[1])) return;
-        $version = floatval($matches[1]); #Mage::log($version);
-        $flag = false; if ($version <= 6.0) $flag = true;
-        return $flag;
-    }
-
     public function getMenuData()
     {
         if (!is_null($this->_menuData)) return $this->_menuData;
-
         $blockClassName = Mage::getConfig()->getBlockClassName('custommenu/navigation');
         $block = new $blockClassName();
-
         $categories = $block->getStoreCategories();
         if (is_object($categories)) $categories = $block->getStoreCategories()->getNodes();
-
         if (Mage::getStoreConfig('custom_menu/general/ajax_load_content')) {
             $_moblieMenuAjaxUrl = str_replace('http:', '', Mage::getUrl('custommenu/ajaxmobilemenucontent'));
             $_menuAjaxUrl = str_replace('http:', '', Mage::getUrl('custommenu/ajaxmenucontent'));
@@ -32,7 +18,6 @@ class WP_CustomMenu_Helper_Data extends Mage_Core_Helper_Abstract
             $_moblieMenuAjaxUrl = '';
             $_menuAjaxUrl = '';
         }
-
         $this->_menuData = array(
             '_block'                        => $block,
             '_categories'                   => $categories,
@@ -46,7 +31,6 @@ class WP_CustomMenu_Helper_Data extends Mage_Core_Helper_Abstract
             '_rtl'                          => Mage::getStoreConfig('custom_menu/general/rtl') + 0,
             '_mobileMenuEnabled'            => Mage::getStoreConfig('custom_menu/general/mobile_menu') + 0,
         );
-
         return $this->_menuData;
     }
 
@@ -54,6 +38,7 @@ class WP_CustomMenu_Helper_Data extends Mage_Core_Helper_Abstract
     {
         $menuData = Mage::helper('custommenu')->getMenuData();
         extract($menuData);
+        if (!$_mobileMenuEnabled) return '';
         // --- Home Link ---
         $homeLinkUrl        = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
         $homeLinkText       = $this->__('Home');
@@ -110,17 +95,22 @@ HTML;
         $menuContent = '';
         $menuContentArray = array();
         foreach ($_categories as $_category) {
-            $menuContentArray[] = $_block->drawCustomMenuItem($_category);
+            $_block->drawCustomMenuItem($_category);
         }
-        if (count($menuContentArray)) {
-            $menuContent = implode("\n", $menuContentArray);
+        $topMenuArray = $_block->getTopMenuArray();
+        if (count($topMenuArray)) {
+            $topMenuContent = implode("\n", $topMenuArray);
+        }
+        $popupMenuArray = $_block->getPopupMenuArray();
+        if (count($popupMenuArray)) {
+            $popupMenuContent = implode("\n", $popupMenuArray);
         }
         // --- Result ---
-        $menu = <<<HTML
+        $topMenu = <<<HTML
 $homeLink
-$menuContent
+$topMenuContent
 <div class="clearBoth"></div>
 HTML;
-        return $menu;
+        return array('topMenu' => $topMenu, 'popupMenu' => $popupMenuContent);
     }
 }

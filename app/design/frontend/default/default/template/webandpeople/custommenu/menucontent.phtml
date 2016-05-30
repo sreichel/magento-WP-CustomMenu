@@ -1,12 +1,13 @@
 <?php $menuContent = Mage::helper('custommenu')->getMenuContent(); ?>
 <script type="text/javascript">
 //<![CDATA[
-if ($('custommenu')) $('custommenu').update(<?php echo Zend_Json::encode($menuContent); ?>);
+if ($('custommenu')) $('custommenu').update(Base64.decode('<?php echo base64_encode($menuContent['topMenu']); ?>'));
+wpPopupMenuContent = Base64.decode('<?php echo base64_encode($menuContent['popupMenu']); ?>');
 //]]>
 </script>
 <?php $mobileMenuContent = Mage::helper('custommenu')->getMobileMenuContent(); ?>
 <script type="text/javascript">
 //<![CDATA[
-if ($('menu-content')) $('menu-content').update(<?php echo Zend_Json::encode($mobileMenuContent); ?>);
+wpMobileMenuContent = Base64.decode('<?php echo base64_encode($mobileMenuContent); ?>');
 //]]>
 </script>
