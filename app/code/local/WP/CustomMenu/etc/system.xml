@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <web_and_people translate="label" module="custommenu">
+            <label>Web-And-People</label>
+            <sort_order>150</sort_order>
+        </web_and_people>
+    </tabs>
+    <sections>
+        <custom_menu translate="label" module="custommenu">
+            <label>Custom Menu</label>
+            <tab>web_and_people</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label comment">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <comment><![CDATA[In order to display a custom block in the popup, use the <b>Static Block</b> (<strong>CMS->Static Blocks</strong> section) with the ID like "<b>wp_custom_menu_XX</b>", where "<b>XX</b>" is the identifier of the linked category]]></comment>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <max_level translate="label comment">
+                            <label>Visible menu depth</label>
+                            <comment><![CDATA[e.g. 1, 2, 3, 4 (0 - disable limits). For example, if you set this value to <b>2</b>, only second level categories will be displayed.]]></comment>
+                            <frontend_type>text</frontend_type>                                                   
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </max_level>
+                    </fields>
+                </general>
+                <columns translate="label">
+                    <label>Columns</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>15</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <count translate="label comment">
+                            <label>Number of columns</label>
+                            <comment>e.g. 1, 2, 3. The maximum number of columns in the popup.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </count>
+                        <integrate translate="label comment">
+                            <label>Merge small subcategories</label>
+                            <frontend_type>select</frontend_type>
+                            <comment><![CDATA[Merge small subcategory lists into one column (except the extream left categories).]]></comment>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </integrate>
+                    </fields>
+                </columns>
+                <popup translate="label">
+                    <label>Popup settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <width translate="label comment">
+                            <label>Width</label>
+                            <comment>in pixels, (0 - no fixed width)</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </width>
+                        <top_offset translate="label comment">
+                            <label>Top offset</label>
+                            <comment>in pixels</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </top_offset>
+                        <right_offset_min translate="label comment">
+                            <label>Right offset (minimum)</label>
+                            <comment>in pixels</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </right_offset_min>
+                    </fields>
+                </popup>
+            </groups>
+        </custom_menu>
+    </sections>
+</config>

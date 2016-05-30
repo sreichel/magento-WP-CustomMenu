@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>wp_custom_menu</name>
+    <version>1.2.5</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/academic.php">Academic Free License (AFL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Custom Navigation Menu (WebAndPeople.com) for magento v1.4</summary>
+    <description>Custom Navigation Menu (WebAndPeople.com) for magento v1.4</description>
+    <notes>+ integrate small columns</notes>
+    <authors><author><name>WebAndPeople</name><user>auto-converted</user><email>design@webandpeople.com</email></author><author><name>y.gerassimenko</name><user>auto-converted</user><email>y.gerassimenko@webandpeople.com</email></author></authors>
+    <date>2011-02-08</date>
+    <time>12:28:13</time>
+    <contents><target name="mageweb"><dir name="app"><dir name="code"><dir name="local"><dir name="WP"><dir name="CustomMenu"><dir name="Block"><file name="Navigation.php" hash="26960c10ecec6d519de78562fce6b063"/></dir><dir name="Helper"><file name="Data.php" hash="34835545685bf29a95e03f914cf69bcb"/></dir><dir name="etc"><file name="adminhtml.xml" hash="8aa1dd048cfde0f8417d91261e6eda3b"/><file name="config.xml" hash="908efb7a583196bee37619fccc6a741c"/><file name="system.xml" hash="f87fca51db2d2062c9db2228d333d0ee"/></dir></dir></dir></dir></dir><dir name="design"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="custommenu.xml" hash="ed16b9066c2e5e2235ec09cb2e6988ae"/></dir><dir name="template"><dir name="custommenu"><file name="top.phtml" hash="2cd4cb77875488a96afa4e03860737e9"/></dir></dir></dir></dir></dir></dir><dir name="etc"><dir name="modules"><file name="WP_CustomMenu.xml" hash="cfe1d1974c20f4ac9f2d5ace4916c5ab"/></dir></dir></dir><dir name="skin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="css"><file name="custommenu.css" hash="4bc0464f899a84e57cd9435ed35f58a7"/></dir><dir name="js"><file name="custommenu.js" hash="c3b3468a1f6f9b0579ebf7cabaa8bb80"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>
