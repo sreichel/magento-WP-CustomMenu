@@ -5,6 +5,7 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
     const CUSTOM_BLOCK_TEMPLATE = "wp_custom_menu_%d";
 
     private $_productsCount     = null;
+    private $_columnsCount      = null;
     private $_topMenu           = array();
     private $_popupMenu         = array();
 
@@ -104,7 +105,7 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
             $htmlPopup[] = '<div id="popup' . $id . '" class="wp-custom-menu-popup" onmouseout="wpHideMenuPopup(this, event, \'popup' . $id . '\', \'menu' . $id . '\')" onmouseover="wpPopupOver(this, event, \'popup' . $id . '\', \'menu' . $id . '\')">';
             // --- draw Sub Categories ---
             if (count($activeChildren)) {
-                $columns = (int)Mage::getStoreConfig('custom_menu/columns/count');
+                $columns = $this->_getColumnsCount($id);
                 $htmlPopup[] = '<div class="block1">';
                 $htmlPopup[] = $this->drawColumns($activeChildren, $columns);
                 $htmlPopup[] = '<div class="clearBoth"></div>';
@@ -372,5 +373,29 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
             $mark += $incr;
         }
         return $partition;
+    }
+
+    private function _getColumnsCount($categoryId)
+    {
+        if (is_null($this->_columnsCount)) {
+            $this->_columnsCount['default'] = (int)Mage::getStoreConfig('custom_menu/columns/count');
+            $columns = Mage::getStoreConfig('custom_menu/columns/count_per_category');
+            if ($columns) {
+                $columns = unserialize($columns);
+                if (is_array($columns)) {
+                    foreach($columns as $row) {
+                        $this->_columnsCount[$row['category']] = $row['coulmn_count'];
+                    }
+                } else {
+                    // handle unserializing errors here
+                }
+            }
+        }
+
+        if (isset($this->_columnsCount[$categoryId])) {
+            return $this->_columnsCount[$categoryId];
+        } else {
+            return $this->_columnsCount['default'];
+        }
     }
 }

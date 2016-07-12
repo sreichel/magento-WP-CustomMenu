@@ -71,6 +71,11 @@
                 <class>WP_CustomMenu_Helper</class>
             </custommenu>
         </helpers>
+        <models>
+            <custommenu>
+                <class>WP_CustomMenu_Model</class>
+            </custommenu>
+        </models>
     </global>
     <default>
         <custom_menu>

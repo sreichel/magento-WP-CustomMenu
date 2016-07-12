@@ -141,6 +141,16 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </count>
+                        <count_per_category translate="label">
+                            <label>Number of columns per category</label>
+                            <frontend_model>custommenu/adminhtml_config_categories</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </count_per_category>
                         <divided_horizontally translate="label comment">
                             <label>Split subcategories left to right</label>
                             <comment>Next subcategory is placed to the next column. By default it is placed bottom in the same column</comment>
