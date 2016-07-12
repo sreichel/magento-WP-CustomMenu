@@ -47,6 +47,7 @@
                             <label>Visible menu depth</label>
                             <comment><![CDATA[e.g. 1, 2, 3, 4. Set "0" to disable limits. For example, if you set this value to 2, only second level categories will be displayed]]></comment>
                             <frontend_type>text</frontend_type>
+                            <validate>validate-zero-or-greater</validate>
                             <sort_order>10</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -134,6 +135,7 @@
                             <label>Number of columns</label>
                             <comment><![CDATA[The maximum number of columns in the popup, <br />e.g. 1, 2, 3]]></comment>
                             <frontend_type>text</frontend_type>
+                            <validate>validate-greater-than-zero</validate>
                             <sort_order>1</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
