@@ -93,6 +93,15 @@
                                 <mobile_menu>1</mobile_menu>
                             </depends>
                         </mobile_menu_width_init>
+                        <non_breaking_space translate="label comment">
+                            <label>Use non-breaking-space</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </non_breaking_space>
                         <rtl translate="label">
                             <label>Enable RTL Text mode</label>
                             <frontend_type>select</frontend_type>
