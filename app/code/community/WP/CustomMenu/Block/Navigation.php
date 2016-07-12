@@ -173,7 +173,9 @@ class WP_CustomMenu_Block_Navigation extends Mage_Catalog_Block_Navigation
                 // --- format category name ---
                 $name = $this->escapeHtml($child->getName());
                 if (Mage::getStoreConfig('custom_menu/general/non_breaking_space')) $name = str_replace(' ', '&nbsp;', $name);
-                $html.= '<a class="itemMenuName level' . $level . $active . '" href="' . $this->getCategoryUrl($child) . '"><span>' . $name . '</span></a>';
+                $html.= '<a class="itemMenuName level' . $level . $active . '" href="' . $this->getCategoryUrl($child) . '">';
+                $html.= '<span class="itemMenuNameTitle itemMenuNameTitleId-' . $child->getId() . '">' . $name . '</span>';
+                $html.= '</a>';
                 $activeChildren = $this->_getActiveChildren($child, $level);
                 if (count($activeChildren) > 0) {
                     $html.= '<div class="itemSubMenu level' . $level . '">';
