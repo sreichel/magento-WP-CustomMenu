@@ -1,0 +1,8 @@
+{
+    "name": "webandpeople/custom-menu",
+    "description": "Responsive top menu",
+    "type": "magento-module",
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
