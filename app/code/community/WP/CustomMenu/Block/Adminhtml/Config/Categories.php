@@ -19,11 +19,12 @@ class WP_CustomMenu_Block_Adminhtml_Config_Categories extends Mage_Adminhtml_Blo
         $this->_addButtonLabel = Mage::helper('custommenu')->__('Add');
     }
 
-    protected function  _getRenderer() 
+    protected function _getRenderer()
     {
         if (!$this->_itemRenderer) {
             $this->_itemRenderer = $this->getLayout()->createBlock(
-                'custommenu/adminhtml_config_form_field_categories', '',
+                'custommenu/adminhtml_config_form_field_categories',
+                '',
                 array('is_render_to_js_template' => true)
             );
         }

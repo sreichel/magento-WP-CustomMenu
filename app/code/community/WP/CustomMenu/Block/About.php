@@ -1,8 +1,6 @@
 <?php
 
-class WP_CustomMenu_Block_About
-    extends Mage_Adminhtml_Block_Abstract
-    implements Varien_Data_Form_Element_Renderer_Interface
+class WP_CustomMenu_Block_About extends Mage_Adminhtml_Block_Abstract implements Varien_Data_Form_Element_Renderer_Interface
 {
 
     /**

@@ -30,11 +30,17 @@ class WP_CustomMenu_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function getMenuData()
     {
-        if (!is_null($this->_menuData)) return $this->_menuData;
+        if (!is_null($this->_menuData)) {
+            return $this->_menuData;
+        }
+
         $blockClassName = Mage::getConfig()->getBlockClassName('custommenu/navigation');
         $block = new $blockClassName();
         $categories = $block->getStoreCategories();
-        if (is_object($categories)) $categories = $block->getStoreCategories()->getNodes();
+        if (is_object($categories)) {
+            $categories = $block->getStoreCategories()->getNodes();
+        }
+
         if (Mage::getStoreConfig('custom_menu/general/ajax_load_content')) {
             $_moblieMenuAjaxUrl = str_replace('http:', '', Mage::getUrl('custommenu/ajaxmobilemenucontent'));
             $_menuAjaxUrl = str_replace('http:', '', Mage::getUrl('custommenu/ajaxmenucontent'));
@@ -63,7 +69,10 @@ class WP_CustomMenu_Helper_Data extends Mage_Core_Helper_Abstract
     {
         $menuData = Mage::helper('custommenu')->getMenuData();
         extract($menuData);
-        if (!$_mobileMenuEnabled) return '';
+        if (!$_mobileMenuEnabled) {
+            return '';
+        }
+
         // --- Home Link ---
         $homeLinkUrl        = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
         $homeLinkText       = $this->__('Home');
@@ -115,7 +124,7 @@ HTML;
     </div>
 </div>
 HTML;
-    }
+        }
         // --- Menu Content ---
         $menuContent        = '';
         $menuContentArray   = array();

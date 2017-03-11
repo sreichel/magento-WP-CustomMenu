@@ -4,7 +4,10 @@ class WP_CustomMenu_Block_Toggle extends Mage_Core_Block_Template
 {
     public function _prepareLayout()
     {
-        if (!Mage::getStoreConfig('custom_menu/general/enabled')) return;
+        if (!Mage::getStoreConfigFlag('custom_menu/general/enabled')) {
+            return;
+        }
+
         $layout = $this->getLayout();
         $topnav = $layout->getBlock('catalog.topnav');
         $head   = $layout->getBlock('head');
@@ -19,8 +22,11 @@ class WP_CustomMenu_Block_Toggle extends Mage_Core_Block_Template
                     $menuContent = $layout->createBlock('core/template', 'custommenu-content')
                         ->setTemplate('webandpeople/custommenu/menucontent.phtml');
                 }
+
                 $positionTarget = $layout->getBlock('before_body_end');
-                if (is_object($positionTarget)) $positionTarget->append($menuContent);
+                if (is_object($positionTarget)) {
+                    $positionTarget->append($menuContent);
+                }
             }
         }
     }
