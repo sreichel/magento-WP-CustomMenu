@@ -146,9 +146,9 @@ function wpIsChildOf(parent, child)
 function wpSetPopupZIndex(popup)
 {
     $$('.wp-custom-menu-popup').each(function(item){
-       item.style.zIndex = '9999';
+       item.style.zIndex = '99999';
     });
-    popup.style.zIndex = '10000';
+    popup.style.zIndex = '100000';
 }
 
 function getCurrentMouseTarget(xEvent)
