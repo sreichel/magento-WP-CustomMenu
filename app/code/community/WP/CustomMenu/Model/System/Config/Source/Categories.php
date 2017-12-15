@@ -10,6 +10,7 @@ class WP_CustomMenu_Model_System_Config_Source_Categories
     {
         if (!$this->options) {
             $categories = Mage::getModel('catalog/category')->getCollection()
+                ->setStore(Mage::app()->getRequest()->getParam('store', 0))
                 ->addAttributeToSelect('name')
                 ->addAttributeToFilter('level', 2)
                 ->addAttributeToFilter('is_active', 1);
